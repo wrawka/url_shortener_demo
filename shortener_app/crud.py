@@ -34,8 +34,18 @@ def get_db_url_by_secret_key(db: Session, secret_key: str) -> models.URL:
 
 
 def update_db_clicks(db: Session, db_url: schemas.URL) -> models.URL:
-    """Increment short URL link click counter."""
+    """Increment click counter for the `db_url` short URL."""
     db_url.clicks += 1
     db.commit()
     db.refresh(db_url)
+    return db_url
+
+
+def deactivate_db_url_by_secret_key(db: Session, secret_key: str) -> models.URL:
+    """Deactivate the short URL associated with the `secret key`."""
+    db_url = get_db_url_by_secret_key(db, secret_key)
+    if db_url:
+        db_url.is_active = False
+        db.commit()
+        db.refresh(db_url)
     return db_url
