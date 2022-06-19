@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "url_shortener_demo"
+version = "0.1.0"
+description = "URL shortener demo app"
+authors = ["wrawka <wrawka@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.78.0"
+uvicorn = "^0.17.6"
+SQLAlchemy = "^1.4.37"
+python-dotenv = "0.19.2"
+validators = "0.18.2"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^4.0.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
