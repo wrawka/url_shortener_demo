@@ -1,4 +1,5 @@
 # shortener_app/config.py
+
 from functools import lru_cache
 
 from pydantic import BaseSettings

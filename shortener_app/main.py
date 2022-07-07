@@ -1,10 +1,13 @@
 # shortener_app/main.py
 
+import pathlib
+
 import validators
 from fastapi import Depends, FastAPI, HTTPException, Request
 from fastapi.responses import RedirectResponse
 from sqlalchemy.orm import Session
 from starlette.datastructures import URL
+from starlette.responses import FileResponse
 
 from . import crud, models, schemas
 from .config import get_settings
@@ -43,6 +46,13 @@ def raise_not_found(request):
 @app.get("/")
 def read_root():
     return "Welcome to the URL shortener API :)"
+
+
+@app.get('/favicon.ico', include_in_schema=False)
+def favicon():
+    file_name = "favicon.ico"
+    file_path = pathlib.Path.cwd()
+    return FileResponse(file_path / file_name)
 
 
 @app.get("/{url_key}")
