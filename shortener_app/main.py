@@ -13,7 +13,10 @@ from . import crud, models, schemas
 from .config import get_settings
 from .database import SessionLocal, engine
 
-app = FastAPI()
+app = FastAPI(
+    title="URL Shortener App",
+    description="A simple demo app"
+)
 models.Base.metadata.create_all(bind=engine)
 
 
