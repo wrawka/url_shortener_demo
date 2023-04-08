@@ -14,7 +14,13 @@ Demo app for creating and managing short versions of the user-provide URL's. Bas
 poetry install
 ```
 
-## Setting environmental variables
+## Installing dependancies (alternative)
+
+```bash
+pip install -r requirements.txt
+```
+
+## Setting environmental variables (optional)
 
 Rename `.env-sample >> .env` and provide the values listed in it.
 
